@@ -17,7 +17,7 @@ test_real_cyc = array_real_cyc[-24:, :]
 train_observe_cyc = array_observe_cyc[:-24, :]
 test_observe_cyc = array_observe_cyc[-24:, :]
 
-n_count = 167*1312 - np.sum(np.sum(real_cyc.isna()))
+n_count = 167*1312
 
 group = generate_sets(train_real_cyc, groups=5)
 test_matrix, _, train_matrix = generate_matrix(data=train_real_cyc, groups=group, test_order=0)
@@ -25,7 +25,7 @@ test_matrix, _, train_matrix = generate_matrix(data=train_real_cyc, groups=group
 # parameters
 num_iter = 150
 learning = 0.001
-'''
+
 # MF without regularization
 MFvar = MF_VAR(train_matrix, test_matrix, n_factors=3, var_reg=0.8596, learning='sgd', process=True, verbose=True)
 MFvar.fit(n_iter=num_iter, learning_rate=learning)
@@ -47,7 +47,7 @@ plot_inference_delta(pred_matrix, train_observe_cyc, title_add='MF VAR Without R
 
 # save the model
 dump(MFvar, r'D:\thesis\models\MFvar.joblib')
-'''
+
 
 # MF with regularization
 MFvar2 = MF_VAR(train_matrix, test_matrix, n_factors=3, learning='sgd',
