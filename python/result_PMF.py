@@ -16,14 +16,14 @@ test_real_cyc = array_real_cyc[-24:, :]
 train_observe_cyc = array_observe_cyc[:-24, :]
 test_observe_cyc = array_observe_cyc[-24:, :]
 
-n_count = 167*1312 - np.sum(np.sum(real_cyc.isna()))
+n_count = 167*1312 
 
 group = generate_sets(train_real_cyc, groups=5)
 test_matrix, _, train_matrix = generate_matrix(data=train_real_cyc, groups=group, test_order=0)
 
 # parameters
 num_iter = 150
-learning = 0.0003
+learning = 0.001
 
 # PMF
 time3 = time.time()
